@@ -6,10 +6,10 @@ const cx = classNames.bind(styles);
 const Header = () => {
     return (
         <div className={cx('header')}>
-            <div className={cx('logo')}>
+            <div className={cx('logo','left')}>
                 로고
             </div>
-            <div className={cx('login')}>
+            <div className={cx('login','right')}>
                 로그인
             </div>
         </div>
