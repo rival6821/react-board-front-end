@@ -6,6 +6,11 @@
     }
     .joinForm{
         .textField{
+            &>div{
+                &.error:after{
+                    border-bottom-color: red;
+                }
+            }
         }
         .joinBtn{
             margin-top:1rem;

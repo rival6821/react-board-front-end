@@ -18,7 +18,7 @@ const Login = () => {
         <Paper className={cx('loginWrap')} >
             <div className={cx('title')}>로그인</div>
             <form autoComplete="off" className={cx('loginForm')}>
-                <TextField id="idInput" margin="normal" label="이메일" value={email} onChange={e => {setEmail(e.target.value)}} className={cx('textField')} fullWidth type="email"/>
+                <TextField id="emailInput" margin="normal" label="이메일" value={email} onChange={e => {setEmail(e.target.value)}} className={cx('textField')} fullWidth type="email"/>
                 <TextField id="ipasswordInput" margin="normal" label="비밀번호" value={password} onChange={e => {setPassword(e.target.value)}} className={cx('textField')} fullWidth type="password"/>
                 <Button fullWidth color="primary" className={cx('loginBtn')} variant="contained">로그인</Button>
             </form>
