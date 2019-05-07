@@ -13,11 +13,32 @@ const cx = classNames.bind(styles);
 
 const List = () => {
     const [lists, setLists] = useState([]);
+    const [count, setCount] = useState(2);
 
     useEffect(()=>{
-
+        setLists([{
+            'title':'제목Test', 
+            'nickname':'작성자Test',
+            'CreatedAt':'2019-05-07'
+        },{
+            'title':'제목Test22', 
+            'nickname':'작성자Test22',
+            'CreatedAt':'2019-05-08'
+        },
+        ]);
     });
-    
+
+    const listTable = lists.map((list,index) => {
+        return(
+            <TableRow key={index}>
+                <TableCell align="center" className={cx('row1')}>{index+1}</TableCell>
+                <TableCell align="left" className={cx('row2')}>{list.title}</TableCell>
+                <TableCell className={cx('row3')}>{list.nickname}</TableCell>
+                <TableCell className={cx('row4')}>{list.CreatedAt}</TableCell>
+            </TableRow>
+        )
+    });
+
     return (
         <Paper className={cx('lists')}>
             <Table className={cx('table')}>
@@ -30,12 +51,7 @@ const List = () => {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell align="center" className={cx('row1')}>1</TableCell>
-                        <TableCell align="left" className={cx('row2')}>제목22</TableCell>
-                        <TableCell className={cx('row3')}>작성자33</TableCell>
-                        <TableCell className={cx('row4')}>2019-01-01</TableCell>
-                    </TableRow>
+                    {listTable}
                 </TableBody>
             </Table>
         </Paper >
