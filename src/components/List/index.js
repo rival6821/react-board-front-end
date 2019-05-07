@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -12,6 +12,12 @@ const cx = classNames.bind(styles);
 
 
 const List = () => {
+    const [lists, setLists] = useState([]);
+
+    useEffect(()=>{
+
+    });
+    
     return (
         <Paper className={cx('lists')}>
             <Table className={cx('table')}>
