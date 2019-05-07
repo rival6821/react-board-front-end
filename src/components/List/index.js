@@ -13,7 +13,6 @@ const cx = classNames.bind(styles);
 
 const List = () => {
     const [lists, setLists] = useState([]);
-    const [count, setCount] = useState(2);
 
     useEffect(()=>{
         setLists([{
@@ -28,10 +27,12 @@ const List = () => {
         ]);
     });
 
+    let tableCnt = lists.length;
+
     const listTable = lists.map((list,index) => {
         return(
-            <TableRow key={index}>
-                <TableCell align="center" className={cx('row1')}>{index+1}</TableCell>
+            <TableRow hover key={index}>
+                <TableCell align="center" className={cx('row1')}>{tableCnt--}</TableCell>
                 <TableCell align="left" className={cx('row2')}>{list.title}</TableCell>
                 <TableCell className={cx('row3')}>{list.nickname}</TableCell>
                 <TableCell className={cx('row4')}>{list.CreatedAt}</TableCell>
