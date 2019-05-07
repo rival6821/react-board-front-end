@@ -15,8 +15,8 @@ function App() {
         <div>
         <Header/>
         <Route path="/" exact component={List} />
-        <Route path="/login/" component={Login} />
-        <Route path="/join/" component={Join} />
+        <Route path="/login/" exact component={Login} />
+        <Route path="/join/" exact component={Join} />
         </div>
       </Router>
     </div>  

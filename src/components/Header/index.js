@@ -7,9 +7,9 @@ const cx = classNames.bind(styles);
 const Header = () => {
     return (
         <div className={cx('header')}>
-            <div className={cx('logo','left')}>
+            <Link className={cx('logo','left')} to="/">
                 로고
-            </div>
+            </Link>
             <Link className={cx('login','right')} to="/login">
                 로그인
             </Link>

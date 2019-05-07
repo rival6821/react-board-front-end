@@ -25,7 +25,7 @@ const List = () => {
             'CreatedAt':'2019-05-08'
         },
         ]);
-    });
+    },[]);
 
     let tableCnt = lists.length;
 
