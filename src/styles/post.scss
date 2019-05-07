@@ -1,0 +1,19 @@
+.postWrap {
+	padding: 30px;
+	.title {
+		margin-bottom: 1rem;
+	}
+	.sub {
+		margin-bottom: 1rem;
+		display: flex;
+		& > div {
+			flex: 1;
+		}
+		.CreatedAt {
+			text-align: right;
+		}
+	}
+	.contents {
+		margin-bottom: 1rem;
+	}
+}
