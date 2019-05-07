@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Header from 'components/Header';
 import List from 'components/List';
@@ -7,11 +8,14 @@ import 'styles/common.scss';
 
 function App() {
   return (
-    <div className="App">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" />
-      <Header/>
-      <List/>
-    </div>
+    <div className={'App'}>
+      <Router>
+        <div>
+        <Header/>
+        <Route path="/" component={List} />
+        </div>
+      </Router>
+    </div>  
   );
 }
 
