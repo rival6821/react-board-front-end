@@ -10,9 +10,14 @@ const Header = () => {
 			<Link className={cx('logo', 'left')} to="/">
 				로고
 			</Link>
-			<Link className={cx('login', 'right')} to="/login">
-				로그인
-			</Link>
+			<div className={cx('right')}>
+				<Link className={cx('login')} to="/login">
+					로그인
+				</Link>
+				<Link className={cx('join')} to="/join">
+					회원가입
+				</Link>
+			</div>
 		</div>
 	);
 };

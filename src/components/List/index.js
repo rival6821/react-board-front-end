@@ -5,6 +5,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Link from '@material-ui/core/Link';
 import classNames from 'classnames/bind';
 
 import styles from 'styles/common.scss';
@@ -16,11 +17,13 @@ const List = () => {
 	useEffect(() => {
 		setLists([
 			{
+				id: '1',
 				title: '제목Test',
 				nickname: '작성자Test',
 				CreatedAt: '2019-05-07',
 			},
 			{
+				id: '2',
 				title: '제목Test22',
 				nickname: '작성자Test22',
 				CreatedAt: '2019-05-08',
@@ -37,7 +40,7 @@ const List = () => {
 					{tableCnt--}
 				</TableCell>
 				<TableCell align="left" className={cx('row2')}>
-					{list.title}
+					<Link href={`./post/${list.id}`}>{list.title}</Link>
 				</TableCell>
 				<TableCell align="center" className={cx('row3')}>
 					{list.nickname}

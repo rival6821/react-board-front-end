@@ -5,6 +5,7 @@ import Header from 'components/Header';
 import List from 'components/List';
 import Login from 'components/Login';
 import Join from 'components/Join';
+import Post from 'components/Post';
 
 import 'styles/common.scss';
 
@@ -15,8 +16,9 @@ function App() {
 				<div>
 					<Header />
 					<Route path="/" exact component={List} />
-					<Route path="/login/" exact component={Login} />
-					<Route path="/join/" exact component={Join} />
+					<Route path="/login" exact component={Login} />
+					<Route path="/join" exact component={Join} />
+					<Route path="/post" component={Post} />
 				</div>
 			</Router>
 		</div>

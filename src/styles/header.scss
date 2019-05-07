@@ -1,14 +1,17 @@
-.header{
-    padding:20px 0;
-    &::after{
-        display: block;
-        content: '';
-        clear: both;
-    }
-    &>.left{
-        float:left;
-    }
-    &>.right{
-        float: right
-    }
+.header {
+	padding: 20px 0;
+	&::after {
+		display: block;
+		content: '';
+		clear: both;
+	}
+	& > .left {
+		float: left;
+	}
+	& > .right {
+		float: right;
+		.join {
+			margin-left: 1rem;
+		}
+	}
 }
