@@ -6,15 +6,20 @@ import Button from '@material-ui/core/Button';
 import classNames from 'classnames/bind';
 
 import styles from 'styles/common.scss';
+import Axios from 'axios';
 const cx = classNames.bind(styles);
 
 const Join = () => {
 	const [email, setEmail] = useState('');
 	const [emailChk, setEmailChk] = useState(true);
+	const [nickname, setNickname] = useState('');
+	const [nicknameChk, setNicknameChk] = useState(true);
 	const [password1, setPassword1] = useState('');
 	const [passwordChk1, setPasswordChk1] = useState(true);
 	const [password2, setPassword2] = useState('');
 	const [passwordChk2, setPasswordChk2] = useState(true);
+
+	const url = 'http://localhost:3100/';
 
 	// 이메일 정규식
 	const emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -26,12 +31,42 @@ const Join = () => {
 			setEmailChk(true);
 			return;
 		}
-		// 중복검사 추가해야함
-		if (emailRule.test(email)) {
-			setEmailChk(true);
+
+		if (!emailRule.test(email)) {
+			setEmailChk(false);
 			return;
 		}
-		setEmailChk(false);
+
+		Axios.post(url + 'user/dupTest/', {
+			type: 'email',
+			data: email,
+		}).then(res => {
+			console.log(res);
+			if (res.data === 'ok') {
+				setEmailChk(true);
+			} else {
+				setEmailChk(false);
+			}
+		});
+	};
+
+	const nicknameTest = nickname => {
+		if (!nickname) {
+			setNicknameChk(true);
+			return;
+		}
+
+		Axios.post(url + 'user/dupTest/', {
+			type: 'nickname',
+			data: nickname,
+		}).then(res => {
+			console.log(res);
+			if (res.data === 'ok') {
+				setNicknameChk(true);
+			} else {
+				setNicknameChk(false);
+			}
+		});
 	};
 
 	const passwordTest = (pass, type) => {
@@ -100,6 +135,21 @@ const Join = () => {
 						passwordChk2 ? '' : '비밀번호를 동일하게 입력해주세요'
 					}
 					error={passwordChk2 ? false : true}
+				/>
+				<TextField
+					id="nicknameInput"
+					margin="normal"
+					label="닉네임"
+					value={nickname}
+					onChange={e => {
+						nicknameTest(e.target.value);
+						setNickname(e.target.value);
+					}}
+					className={cx('textField')}
+					fullWidth
+					type="email"
+					helperText={nicknameChk ? '' : '중복된 닉네임입니다'}
+					error={nicknameChk ? false : true}
 				/>
 				<Button
 					fullWidth
