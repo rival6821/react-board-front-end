@@ -101,6 +101,10 @@ const Join = () => {
 						emailChk ? '' : '이메일양식에 맞게 입력해주세요'
 					}
 					error={emailChk ? false : true}
+					required={true}
+					inputProps={{
+						maxLength: 50,
+					}}
 				/>
 				<TextField
 					id="passwordInput"
@@ -118,6 +122,10 @@ const Join = () => {
 						'영문+숫자+특수문자를 혼합하여 8자~20자로 입력해주세요'
 					}
 					error={passwordChk1 ? false : true}
+					required={true}
+					inputProps={{
+						maxLength: 20,
+					}}
 				/>
 				<TextField
 					id="rePasswordInput"
@@ -135,6 +143,10 @@ const Join = () => {
 						passwordChk2 ? '' : '비밀번호를 동일하게 입력해주세요'
 					}
 					error={passwordChk2 ? false : true}
+					required={true}
+					inputProps={{
+						maxLength: 20,
+					}}
 				/>
 				<TextField
 					id="nicknameInput"
@@ -150,6 +162,10 @@ const Join = () => {
 					type="email"
 					helperText={nicknameChk ? '' : '중복된 닉네임입니다'}
 					error={nicknameChk ? false : true}
+					required={true}
+					inputProps={{
+						maxLength: 15,
+					}}
 				/>
 				<Button
 					fullWidth
