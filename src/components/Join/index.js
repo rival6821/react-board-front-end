@@ -81,6 +81,33 @@ const Join = () => {
 		type === '1' ? setPasswordChk1(false) : setPasswordChk2(false);
 	};
 
+	const JoinAction = () => {
+		if (!emailChk || !email) {
+			alert('이메일을 확인해주세요');
+			return;
+		}
+		if (!passwordChk1 || !passwordChk2 || !password1 || !password2) {
+			alert('비밀번호를 확인해주세요');
+			return;
+		}
+		if (!nicknameChk || !nickname) {
+			alert('닉네임을 확인해주세요');
+			return;
+		}
+
+		Axios.post(url + 'user/join/', {
+			email: email,
+			nickname: nickname,
+			password: password1,
+		}).then(res => {
+			console.log(res);
+			if (res.data === 'ok') {
+				alert('회원가입이 완료되었습니다.');
+				window.location.href = '/login';
+			}
+		});
+	};
+
 	return (
 		<Paper className={cx('joinWrap')}>
 			<div className={cx('title')}>회원가입</div>
@@ -172,6 +199,9 @@ const Join = () => {
 					color="primary"
 					className={cx('joinBtn')}
 					variant="contained"
+					onClick={() => {
+						JoinAction();
+					}}
 				>
 					회원가입
 				</Button>
