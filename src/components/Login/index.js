@@ -7,11 +7,31 @@ import Button from '@material-ui/core/Button';
 import classNames from 'classnames/bind';
 
 import styles from 'styles/common.scss';
+import Axios from 'axios';
 const cx = classNames.bind(styles);
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const url = 'http://localhost:3100/';
+
+	const LoginAction = () => {
+		if (!email) {
+			alert('이메일을 입력해주세요');
+			return;
+		}
+		if (!password) {
+			alert('비밀번호를 입력해주세요');
+			return;
+		}
+		Axios.post(url + 'user/login/', {
+			email: email,
+			password: password,
+		}).then(res => {
+			console.log(res);
+		});
+	};
 
 	return (
 		<Paper className={cx('loginWrap')}>
@@ -46,6 +66,9 @@ const Login = () => {
 					color="primary"
 					className={cx('loginBtn')}
 					variant="contained"
+					onClick={() => {
+						LoginAction();
+					}}
 				>
 					로그인
 				</Button>
