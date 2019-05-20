@@ -1,58 +1,43 @@
 import React from "react";
 import Link from "next/link";
-import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
 
-const AppHead = styled.div`
-  display: flex;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1rem;
+const styles = {
+  root: {
+    flexGrow: 1
+  },
+  grow: {
+    flexGrow: 1
   }
-`;
-
-const Logo = styled.div`
-  flex: 1;
-`;
-
-const Login = styled.div`
-  flex: 1;
-  text-align: right;
-  a {
-    margin-left: 0.625rem;
-  }
-`;
+};
 
 const dummy = {
   isLoggedIn: false
 };
 
-const Header = () => {
+const Header = ({ classes }) => {
   return (
-    <AppHead>
-      <Logo>
-        <Link href="/">
-          <a>로고</a>
-        </Link>
-      </Logo>
-      <Login>
-        {dummy.isLoggedIn ? (
-          <div>아이디</div>
-        ) : (
-          <>
-            <Link href="/login">
-              <a>로그인</a>
-            </Link>
-            <Link href="/join">
-              <a>회원가입</a>
-            </Link>
-          </>
-        )}
-      </Login>
-    </AppHead>
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" color="inherit" className={classes.grow}>
+            후니보드
+          </Typography>
+          <Button color="inherit">로그인</Button>
+          <Button color="inherit">회원가입</Button>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 };
 
-export default Header;
+Header.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(Header);
