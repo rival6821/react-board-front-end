@@ -1,11 +1,11 @@
-import Head from "../components/Head";
+import React from "react";
 
 const List = () => {
   return (
     <div>
-      <Head />
       <h1>Hello!!</h1>
     </div>
   );
 };
+
 export default List;

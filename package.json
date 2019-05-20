@@ -20,6 +20,7 @@
   "homepage": "https://github.com/rival6821/react-board-front-end#readme",
   "dependencies": {
     "next": "^8.1.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0"
