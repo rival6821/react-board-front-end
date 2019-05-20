@@ -5,6 +5,12 @@ import styled, { css } from "styled-components";
 const AppHead = styled.div`
   display: flex;
   border: 1px solid #ddd;
+  padding: 1rem;
+  a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+  }
 `;
 
 const Logo = styled.div`
@@ -14,6 +20,9 @@ const Logo = styled.div`
 const Login = styled.div`
   flex: 1;
   text-align: right;
+  a {
+    margin-left: 0.625rem;
+  }
 `;
 
 const dummy = {
