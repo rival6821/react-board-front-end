@@ -1,9 +1,9 @@
+import React from "react";
 import styled, { css } from "styled-components";
 
-const Header = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
+const AppHead = styled.div`
   display: flex;
+  border: 1px solid #ddd;
 `;
 
 const Logo = styled.div`
@@ -15,12 +15,13 @@ const Login = styled.div`
   text-align: right;
 `;
 
-const Head = () => {
+const Header = () => {
   return (
-    <Header>
+    <AppHead>
       <Logo>로고</Logo>
       <Login>로그인</Login>
-    </Header>
+    </AppHead>
   );
 };
-export default Head;
+
+export default Header;

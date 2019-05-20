@@ -1,12 +1,20 @@
 import React from "react";
-import Header from "../components/Head";
+import Head from "next/head";
+import Header from "../components/Header";
+import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 
 const Board = ({ Component }) => {
   return (
     <>
-      <Header />
-      <Component />
+      <Head>
+        <title>후니보드</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <Layout>
+        <Header />
+        <Component />
+      </Layout>
     </>
   );
 };
