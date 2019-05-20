@@ -2,28 +2,22 @@ import React from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
-
-const Layout = styled.div`
-  max-width: 700px;
-  margin: 0 auto;
-`;
 
 const Board = ({ Component }) => {
   return (
     <>
       <Head>
         <title>후니보드</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link
           rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.18.2/antd.css"
         />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.18.2/antd.js" />
       </Head>
-      <Layout>
+      <div style={{ maxWidth: "700px", margin: "0 auto" }}>
         <Header />
         <Component />
-      </Layout>
+      </div>
     </>
   );
 };
