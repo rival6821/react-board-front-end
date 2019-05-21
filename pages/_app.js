@@ -14,7 +14,7 @@ const Board = ({ Component }) => {
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/antd/3.18.2/antd.js" />
       </Head>
-      <div style={{ maxWidth: "700px", margin: "0 auto" }}>
+      <div>
         <Header />
         <Component />
       </div>

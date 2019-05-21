@@ -1,31 +1,46 @@
 import React from "react";
+import styled from "styled-components";
+import { Button } from "antd";
 import Link from "next/link";
-import PropTypes from "prop-types";
-import { Menu } from "antd";
 
-const dummy = {
-  isLoggedIn: false
-};
+const Nav = styled.div`
+  display: flex;
+  padding: 10px 16px;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 1px 1px 3px #ddd;
+`;
+
+const Logo = styled.div`
+  a{
+    color #333;
+    font-size : 20px;
+  }
+`;
+
+const Btns = styled.div`
+  button {
+    margin-left: 10px;
+  }
+`;
 
 const Header = () => {
   return (
-    <Menu mode="horizontal">
-      <Menu.Item key="home">
+    <Nav>
+      <Logo>
         <Link href="/">
           <a>후니보드</a>
         </Link>
-      </Menu.Item>
-      <Menu.Item key="login">
-        <Link href="/login">
-          <a>로그인</a>
-        </Link>
-      </Menu.Item>
-      <Menu.Item key="join">
-        <Link href="/join">
-          <a>회원가입</a>
-        </Link>
-      </Menu.Item>
-    </Menu>
+      </Logo>
+      <Btns>
+        <Button>
+          <Link href="/join">
+            <a>회원가입</a>
+          </Link>
+        </Button>
+        <Button type="primary">로그인</Button>
+      </Btns>
+    </Nav>
   );
 };
 
